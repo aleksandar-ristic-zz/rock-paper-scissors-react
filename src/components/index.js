@@ -1,0 +1,5 @@
+export { Header } from './Header'
+export { Game } from './Game'
+export { Play } from './Play'
+export { Footer } from './Footer'
+export { Modal } from './Modal'
