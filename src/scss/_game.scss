@@ -1,0 +1,76 @@
+.Game {
+	margin-top: 3.125rem;
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+
+	&__player,
+	&__computer {
+		display: flex;
+		flex-direction: column;
+
+		.text {
+			text-transform: uppercase;
+			font-size: 1.2rem;
+			font-weight: 300;
+			margin-bottom: 2.5rem;
+		}
+
+		.icon {
+			height: 15.625rem;
+			width: 15.625rem;
+			border: transparent solid 1.5rem;
+			border-radius: 50%;
+			background-size: 50%;
+
+			&--rock {
+				@include icon($image-rock, $rock-gradient);
+
+				&--win {
+					@include shadowXl($rock-gradient);
+				}
+			}
+			&--paper {
+				@include icon($image-paper, $paper-gradient);
+
+				&--win {
+					@include shadowXl($paper-gradient);
+				}
+			}
+			&--scissors {
+				@include icon($image-scissors, $scissors-gradient);
+
+				&--win {
+					@include shadowXl($scissors-gradient);
+				}
+			}
+		}
+	}
+
+	&__result {
+		margin: 0 2rem;
+		display: flex;
+		flex-direction: column;
+
+		.text {
+			margin-bottom: 0.875rem;
+			text-transform: uppercase;
+			font-size: 3rem;
+			font-weight: 700;
+		}
+
+		.btn-play-again {
+			padding: 0.875rem 1.25rem;
+			background-color: #fff;
+			border-radius: 0.35rem;
+			text-decoration: none;
+			text-transform: uppercase;
+			font-size: 0.8rem;
+			transition: color 0.2s;
+
+			&:hover {
+				color: crimson;
+			}
+		}
+	}
+}

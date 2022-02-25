@@ -1,0 +1,32 @@
+.Header {
+	width: 100%;
+	max-width: 43.75rem;
+	margin-top: 1.875rem;
+	padding: 1.25rem;
+	border: 3px solid $header-outline;
+	border-radius: 1rem;
+	display: flex;
+	justify-content: space-between;
+
+	.text {
+		font-size: 2.5rem;
+		text-transform: uppercase;
+		line-height: 2rem;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.score-box {
+		padding: 0.75px 2.5rem;
+		background-color: #fff;
+		border-radius: 0.35rem;
+		color: $score-text;
+
+		&__score {
+			color: $dark-text;
+			font-size: 3.5rem;
+			font-weight: 700;
+		}
+	}
+}

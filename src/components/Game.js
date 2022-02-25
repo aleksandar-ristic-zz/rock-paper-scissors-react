@@ -21,7 +21,7 @@ export const Game = ({ setScore, playerChoice }) => {
 		const checkChoices = () => {
 			if (!playerChoice) return
 			if (playerChoice === computerChoice) {
-				setResult('Draw!')
+				setResult('draw')
 				return
 			}
 
@@ -30,7 +30,7 @@ export const Game = ({ setScore, playerChoice }) => {
 				(playerChoice === 'paper' && computerChoice === 'rock') ||
 				(playerChoice === 'scissors' && computerChoice === 'paper')
 			) {
-				setResult('You Win!')
+				setResult('you win')
 				setScore(prevScore => prevScore + 1)
 			}
 
@@ -39,7 +39,7 @@ export const Game = ({ setScore, playerChoice }) => {
 				(computerChoice === 'paper' && playerChoice === 'rock') ||
 				(computerChoice === 'scissors' && playerChoice === 'paper')
 			) {
-				setResult('Computer Wins!')
+				setResult('you lose')
 				setScore(prevScore => prevScore - 1)
 			}
 		}
@@ -47,13 +47,35 @@ export const Game = ({ setScore, playerChoice }) => {
 	}, [playerChoice, computerChoice, setScore])
 
 	return (
-		<div>
-			<p>player choice:{playerChoice}</p>
-			<p>computer choice: {computerChoice}</p>
-			result: <h2>{result}</h2>
-			<Link to='/' onClick={() => setComputerChoice('')}>
-				Play Again
-			</Link>
+		<div className='Game'>
+			<div className='Game__player'>
+				<span className='text'>You Picked</span>
+				<div
+					className={`icon icon--${playerChoice} ${
+						result === 'you Win' ? `icon icon--${playerChoice}--win` : ''
+					}`}
+				></div>
+			</div>
+			{result && (
+				<div className='Game__result'>
+					<span className='text'>{result}</span>
+					<Link
+						to='/'
+						onClick={() => setComputerChoice('')}
+						className='btn-play-again'
+					>
+						Play Again
+					</Link>
+				</div>
+			)}
+			<div className='Game__computer'>
+				<span className='text'>The House Picked</span>
+				<div
+					className={`icon icon--${computerChoice} ${
+						result === 'you Lose' ? `icon icon--${computerChoice}--win` : ''
+					}`}
+				></div>
+			</div>
 		</div>
 	)
 }

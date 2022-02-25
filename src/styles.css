@@ -9,7 +9,7 @@
 }
 
 body {
-  font-family: 'Barlow Semi Condensed', sans-serif;
+  font-family: "Barlow Semi Condensed", sans-serif;
   background: radial-gradient(circle, #1f3756, #141539);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -28,4 +28,229 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.Header {
+  width: 100%;
+  max-width: 43.75rem;
+  margin-top: 1.875rem;
+  padding: 1.25rem;
+  border: 3px solid #606e85;
+  border-radius: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.Header .text {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  line-height: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+.Header .score-box {
+  padding: 0.75px 2.5rem;
+  background-color: #fff;
+  border-radius: 0.35rem;
+  color: #2a46c0;
+}
+.Header .score-box__score {
+  color: #3b4363;
+  font-size: 3.5rem;
+  font-weight: 700;
+}
+
+.Play {
+  width: 100%;
+  position: relative;
+  margin-top: 3.125rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.Play .triangle {
+  position: absolute;
+  -ms-flex-item-align: center;
+      align-self: center;
+  margin-top: 4.375rem;
+}
+.Play .items {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.Play .items .icon {
+  height: 160px;
+  width: 160px;
+  border: 1.125rem solid;
+  border-radius: 50%;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+.Play .items .icon--rock {
+  background-color: #fff;
+  background-image: url("../src/images/icon-rock.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  border-color: #dc2e4e;
+  -webkit-box-shadow: inset 0px 5px 6px grey, 0px 8px #b71f3b;
+          box-shadow: inset 0px 5px 6px grey, 0px 8px #b71f3b;
+  -webkit-transform: translateX(1.5rem);
+          transform: translateX(1.5rem);
+}
+.Play .items .icon--rock:hover {
+  -webkit-transform: translateX(1.5rem) scale(1.05);
+          transform: translateX(1.5rem) scale(1.05);
+}
+.Play .items .icon--paper {
+  background-color: #fff;
+  background-image: url("../src/images/icon-paper.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  border-color: #4865f4;
+  -webkit-box-shadow: inset 0px 5px 6px grey, 0px 8px #183cf2;
+          box-shadow: inset 0px 5px 6px grey, 0px 8px #183cf2;
+  -webkit-transform: translateX(8rem);
+          transform: translateX(8rem);
+}
+.Play .items .icon--paper:hover {
+  -webkit-transform: translateX(8rem) scale(1.05);
+          transform: translateX(8rem) scale(1.05);
+}
+.Play .items .icon--scissors {
+  background-color: #fff;
+  background-image: url("../src/images/icon-scissors.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  border-color: #ec9e0e;
+  -webkit-box-shadow: inset 0px 5px 6px grey, 0px 8px #bc7e0b;
+          box-shadow: inset 0px 5px 6px grey, 0px 8px #bc7e0b;
+  -webkit-transform: translate(-10rem, 13rem);
+          transform: translate(-10rem, 13rem);
+}
+.Play .items .icon--scissors:hover {
+  -webkit-transform: translate(-10rem, 13rem) scale(1.05);
+          transform: translate(-10rem, 13rem) scale(1.05);
+}
+
+.Game {
+  margin-top: 3.125rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.Game__player, .Game__computer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.Game__player .text, .Game__computer .text {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin-bottom: 2.5rem;
+}
+.Game__player .icon, .Game__computer .icon {
+  height: 15.625rem;
+  width: 15.625rem;
+  border: transparent solid 1.5rem;
+  border-radius: 50%;
+  background-size: 50%;
+}
+.Game__player .icon--rock, .Game__computer .icon--rock {
+  background-color: #fff;
+  background-image: url("../src/images/icon-rock.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  border-color: #dc2e4e;
+  -webkit-box-shadow: inset 0px 5px 6px grey, 0px 8px #b71f3b;
+          box-shadow: inset 0px 5px 6px grey, 0px 8px #b71f3b;
+}
+.Game__player .icon--rock--win, .Game__computer .icon--rock--win {
+  -webkit-box-shadow: inset 0 5px 6px grey, 0 8px #b71f3b, 0 0 0 50px rgba(255, 255, 255, 0.07), 0 0 0 100px rgba(255, 255, 255, 0.05), 0 0 0 150px rgba(255, 255, 255, 0.02);
+          box-shadow: inset 0 5px 6px grey, 0 8px #b71f3b, 0 0 0 50px rgba(255, 255, 255, 0.07), 0 0 0 100px rgba(255, 255, 255, 0.05), 0 0 0 150px rgba(255, 255, 255, 0.02);
+}
+.Game__player .icon--paper, .Game__computer .icon--paper {
+  background-color: #fff;
+  background-image: url("../src/images/icon-paper.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  border-color: #4865f4;
+  -webkit-box-shadow: inset 0px 5px 6px grey, 0px 8px #183cf2;
+          box-shadow: inset 0px 5px 6px grey, 0px 8px #183cf2;
+}
+.Game__player .icon--paper--win, .Game__computer .icon--paper--win {
+  -webkit-box-shadow: inset 0 5px 6px grey, 0 8px #183cf2, 0 0 0 50px rgba(255, 255, 255, 0.07), 0 0 0 100px rgba(255, 255, 255, 0.05), 0 0 0 150px rgba(255, 255, 255, 0.02);
+          box-shadow: inset 0 5px 6px grey, 0 8px #183cf2, 0 0 0 50px rgba(255, 255, 255, 0.07), 0 0 0 100px rgba(255, 255, 255, 0.05), 0 0 0 150px rgba(255, 255, 255, 0.02);
+}
+.Game__player .icon--scissors, .Game__computer .icon--scissors {
+  background-color: #fff;
+  background-image: url("../src/images/icon-scissors.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  border-color: #ec9e0e;
+  -webkit-box-shadow: inset 0px 5px 6px grey, 0px 8px #bc7e0b;
+          box-shadow: inset 0px 5px 6px grey, 0px 8px #bc7e0b;
+}
+.Game__player .icon--scissors--win, .Game__computer .icon--scissors--win {
+  -webkit-box-shadow: inset 0 5px 6px grey, 0 8px #bc7e0b, 0 0 0 50px rgba(255, 255, 255, 0.07), 0 0 0 100px rgba(255, 255, 255, 0.05), 0 0 0 150px rgba(255, 255, 255, 0.02);
+          box-shadow: inset 0 5px 6px grey, 0 8px #bc7e0b, 0 0 0 50px rgba(255, 255, 255, 0.07), 0 0 0 100px rgba(255, 255, 255, 0.05), 0 0 0 150px rgba(255, 255, 255, 0.02);
+}
+.Game__result {
+  margin: 0 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.Game__result .text {
+  margin-bottom: 0.875rem;
+  text-transform: uppercase;
+  font-size: 3rem;
+  font-weight: 700;
+}
+.Game__result .btn-play-again {
+  padding: 0.875rem 1.25rem;
+  background-color: #fff;
+  border-radius: 0.35rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  -webkit-transition: color 0.2s;
+  transition: color 0.2s;
+}
+.Game__result .btn-play-again:hover {
+  color: crimson;
 }
