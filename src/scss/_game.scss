@@ -16,11 +16,24 @@
 			margin-bottom: 2.5rem;
 		}
 
+		.counter,
 		.icon {
-			height: 15.625rem;
 			width: 15.625rem;
-			border: transparent solid 1.5rem;
+			height: 15.625rem;
 			border-radius: 50%;
+		}
+
+		.counter {
+			background: rgba($color: #1f1f1f, $alpha: 0.3);
+			font-size: 8rem;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+		}
+
+		.icon {
+			border: transparent solid 1.5rem;
 			background-size: 50%;
 
 			&--rock {
@@ -45,6 +58,14 @@
 				}
 			}
 		}
+	}
+
+	&__player {
+		margin-right: 2.5rem;
+	}
+
+	&__computer {
+		margin-left: 2.5rem;
 	}
 
 	&__result {

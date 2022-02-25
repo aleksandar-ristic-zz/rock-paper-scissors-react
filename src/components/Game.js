@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { useInterval } from '../hooks/use-interval'
 
 export const Game = ({ setScore, playerChoice }) => {
 	const [computerChoice, setComputerChoice] = useState('')
 	const [result, setResult] = useState('')
+	const [count, setCount] = useState(3)
 
 	useEffect(() => {
 		const randomComputerPick = () => {
@@ -43,8 +45,18 @@ export const Game = ({ setScore, playerChoice }) => {
 				setScore(prevScore => prevScore - 1)
 			}
 		}
-		checkChoices()
-	}, [playerChoice, computerChoice, setScore])
+
+		if (count === 0) {
+			checkChoices()
+		}
+	}, [playerChoice, computerChoice, setScore, count])
+
+	useInterval(
+		() => {
+			setCount(prevCount => prevCount - 1)
+		},
+		count > 0 ? 1000 : 0
+	)
 
 	return (
 		<div className='Game'>
@@ -52,29 +64,37 @@ export const Game = ({ setScore, playerChoice }) => {
 				<span className='text'>You Picked</span>
 				<div
 					className={`icon icon--${playerChoice} ${
-						result === 'you Win' ? `icon icon--${playerChoice}--win` : ''
+						result === 'you win' ? `icon icon--${playerChoice}--win` : ''
 					}`}
 				></div>
 			</div>
-			{result && (
-				<div className='Game__result'>
-					<span className='text'>{result}</span>
-					<Link
-						to='/'
-						onClick={() => setComputerChoice('')}
-						className='btn-play-again'
-					>
-						Play Again
-					</Link>
-				</div>
-			)}
+
+			<div className='Game__result'>
+				{count === 0 && result && (
+					<>
+						<span className='text'>{result}</span>
+						<Link
+							to='/'
+							onClick={() => setComputerChoice('')}
+							className='btn-play-again'
+						>
+							Play Again
+						</Link>
+					</>
+				)}
+			</div>
+
 			<div className='Game__computer'>
 				<span className='text'>The House Picked</span>
-				<div
-					className={`icon icon--${computerChoice} ${
-						result === 'you Lose' ? `icon icon--${computerChoice}--win` : ''
-					}`}
-				></div>
+				{count === 0 ? (
+					<div
+						className={`icon icon--${computerChoice} ${
+							result === 'you lose' ? `icon icon--${computerChoice}--win` : ''
+						}`}
+					></div>
+				) : (
+					<div className='counter'>{count}</div>
+				)}
 			</div>
 		</div>
 	)

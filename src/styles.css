@@ -179,11 +179,32 @@ body {
   font-weight: 300;
   margin-bottom: 2.5rem;
 }
-.Game__player .icon, .Game__computer .icon {
-  height: 15.625rem;
+.Game__player .counter,
+.Game__player .icon, .Game__computer .counter,
+.Game__computer .icon {
   width: 15.625rem;
-  border: transparent solid 1.5rem;
+  height: 15.625rem;
   border-radius: 50%;
+}
+.Game__player .counter, .Game__computer .counter {
+  background: rgba(31, 31, 31, 0.3);
+  font-size: 8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.Game__player .icon, .Game__computer .icon {
+  border: transparent solid 1.5rem;
   background-size: 50%;
 }
 .Game__player .icon--rock, .Game__computer .icon--rock {
@@ -225,6 +246,12 @@ body {
   -webkit-box-shadow: inset 0 5px 6px grey, 0 8px #bc7e0b, 0 0 0 50px rgba(255, 255, 255, 0.07), 0 0 0 100px rgba(255, 255, 255, 0.05), 0 0 0 150px rgba(255, 255, 255, 0.02);
           box-shadow: inset 0 5px 6px grey, 0 8px #bc7e0b, 0 0 0 50px rgba(255, 255, 255, 0.07), 0 0 0 100px rgba(255, 255, 255, 0.05), 0 0 0 150px rgba(255, 255, 255, 0.02);
 }
+.Game__player {
+  margin-right: 2.5rem;
+}
+.Game__computer {
+  margin-left: 2.5rem;
+}
 .Game__result {
   margin: 0 2rem;
   display: -webkit-box;
@@ -253,4 +280,86 @@ body {
 }
 .Game__result .btn-play-again:hover {
   color: crimson;
+}
+
+footer {
+  width: 100%;
+}
+footer .attribution {
+  position: absolute;
+  left: 50%;
+  bottom: 1rem;
+  -webkit-transform: translate(-50%);
+          transform: translate(-50%);
+}
+footer .attribution a {
+  color: #606e85;
+  text-decoration: none;
+}
+footer button.rules {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  padding: 0.475rem 1.25rem;
+  background: none;
+  border: 3px solid #606e85;
+  border-radius: 0.35rem;
+  color: #97a2b4;
+  font-weight: 600;
+  letter-spacing: 2px;
+}
+footer button.rules:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #3b4363;
+  cursor: pointer;
+}
+
+.Modal {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.Modal .modal-box {
+  color: #3b4363;
+  padding: 1.875rem;
+  background-color: #fff;
+  border-radius: 0.5rem;
+}
+.Modal .modal-box img {
+  width: 100%;
+}
+.Modal .modal-box__header {
+  margin-bottom: 1.875rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.Modal .modal-box__header h1 {
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+}
+.Modal button {
+  background: none;
+  border: none;
+  color: #3b4363;
+}
+.Modal button:hover {
+  cursor: pointer;
+}
+.Modal button:active {
+  outline: none;
 }
